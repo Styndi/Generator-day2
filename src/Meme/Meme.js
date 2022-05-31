@@ -29,7 +29,7 @@ export const Meme = () => {
         const formData = new FormData();
 
         formData.append('username', 'Styndi');
-        formData.append('password', 'Moosje');
+        formData.append('password', 'Moosje123');
         formData.append('template_id', currentMeme.id);
         captions.forEach((c, index) => formData.append(`boxes[${index}][text]`, c));
 
@@ -38,7 +38,6 @@ export const Meme = () => {
             body: formData
         }).then(res => {
             res.json().then(res => {
-                console.log(res)
                 history.push(`/generated?url=${res.data.url}`)
             });
         });
